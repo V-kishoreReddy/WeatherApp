@@ -7,24 +7,27 @@
 //
 
 import UIKit
-
-class WeatherListViewController: UIViewController {
-    
+protocol ControlAPICall {
+    func weatherList()
+}
+class WeatherListViewController: UIViewController,ControlAPICall{
     var weatherViewModal = WeatherViewModal()
+    var delegate:ControlAPICall!
     @IBOutlet weak var weatherListTableView : UITableView!
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        weatherViewModal.vc = self
-        weatherViewModal.getALLUserData()
-        weatherListTableView.dataSource  = self
+        weatherList()
         weatherListTableView.register(UINib(nibName: "WeatherListViewCell", bundle: nil), forCellReuseIdentifier: "WeatherListViewCell")
     }
-    
+    func weatherList() {
+        weatherViewModal.vc = self
+        weatherViewModal.getWeatherData()
+    }
     // MARK: - Bar Buttun Action
     @IBAction func addBtnTapped(_ sender: UIBarButtonItem) {
         let cityListVc = self.storyboard?.instantiateViewController(identifier: "CityListViewController")as! CityListViewController
+        cityListVc.delegate = self
         self.navigationController?.pushViewController(cityListVc, animated: true)
     }
     
@@ -44,7 +47,6 @@ extension WeatherListViewController :UITableViewDataSource,UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let detailVc = self.storyboard?.instantiateViewController(identifier: "WeatherDetailViewController")as! WeatherDetailViewController
-        // tableVc.modalData = arrData[indexPath.row]
         self.navigationController?.pushViewController(detailVc, animated: true)
     }
 }

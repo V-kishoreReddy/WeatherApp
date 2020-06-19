@@ -8,23 +8,41 @@
 
 import UIKit
 
-class CityListViewController: UIViewController {
-
+class CityListViewController: UIViewController{
+    
+    
+    @IBOutlet weak var cityListTableView: UITableView!
+    var delegate:ControlAPICall!
+    var weatherViewModal = WeatherViewModal()
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        weatherViewModal.vc1 = self
+        weatherViewModal.readJSONFromLocalFile()
+        cityListTableView.register(UINib(nibName: "CityListViewCell", bundle: nil), forCellReuseIdentifier: "CityListViewCell")
         // Do any additional setup after loading the view.
     }
-    
+}
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+extension CityListViewController : UITableViewDelegate,UITableViewDataSource{
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        weatherViewModal.cityArrayData.count
     }
-    */
-
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CityListViewCell", for: indexPath) as? CityListViewCell
+        let cityModal = weatherViewModal.cityArrayData[indexPath.row]
+        cell!.cityModal = cityModal
+        return cell!
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let appDelegate : AppDelegate = AppDelegate().sharedInstance()
+        if appDelegate.cityArray.contains(weatherViewModal.cityArrayData[indexPath.row].id){
+          self.alert(message:"\(weatherViewModal.cityArrayData[indexPath.row].name) city already selected",title: "Status")  }else{
+           appDelegate.cityArray.append(weatherViewModal.cityArrayData[indexPath.row].id)
+        }
+        self.delegate.weatherList()
+        self.navigationController?.popViewController(animated: true)
+        
+    }
 }

@@ -11,13 +11,21 @@ import UIKit
 import SwiftyJSON
 class WeatherViewModal{
     weak var vc : WeatherListViewController?
+    weak var vc1 : CityListViewController?
     var weatherArrayData = [WeatherDataModal]()
-    func getALLUserData(){
+    var cityArrayData = [WeatherCityModal]()
+    
+    
+    func getWeatherData(){
+        let appDelegate : AppDelegate = AppDelegate().sharedInstance()
+       let citylist = appDelegate.cityArray.joined(separator:",")
+        let weather_listApi = "\(base_url)group?id=\(citylist)&units=\(units)&appid=\(app_id)"
         URLSession.shared.dataTask(with: URL(string:weather_listApi)!) {data,response,error in
             guard let data = data else {return}
             do{
                 let json = try JSON(data: data)
                 let result  = json["list"]
+                self.weatherArrayData.removeAll()
                 for arr in result.arrayValue{
                     self.weatherArrayData.append(WeatherDataModal(json: arr))
                 }
@@ -31,4 +39,26 @@ class WeatherViewModal{
         }.resume()
     }
     
+    // MARK:- Local JSON
+    /*=======================================================================
+     Call local Json responce to import City List
+     =======================================================================*/
+    func readJSONFromLocalFile() {
+        if let path = Bundle.main.path(forResource: "current.city.list", ofType: "json")
+        {
+            if let jsonData = NSData(contentsOfFile: path)
+            {
+                do {
+                    let result = try JSON(data: jsonData as Data)
+                    for arr in result.arrayValue{
+                        self.cityArrayData.append(WeatherCityModal(cityJosn: arr))
+                    }
+                    print(cityArrayData.count)
+                }
+                catch let exception {
+                    exception.localizedDescription
+                }
+            }
+        }
+    }
 }
