@@ -11,7 +11,7 @@ import UIKit
 import SwiftyJSON
 class WeatherViewModal{
     weak var vc : WeatherListViewController?
-    weak var vc1 : CityListViewController?
+    weak var cityListVc : CityListViewController?
     var weatherArrayData = [WeatherDataModal]()
     var cityArrayData = [WeatherCityModal]()
     
@@ -54,6 +54,9 @@ class WeatherViewModal{
                         self.cityArrayData.append(WeatherCityModal(cityJosn: arr))
                     }
                     print(cityArrayData.count)
+                    DispatchQueue.main.async {
+                        self.cityListVc?.cityListTableView.reloadData()
+                    }
                 }
                 catch let exception {
                     exception.localizedDescription

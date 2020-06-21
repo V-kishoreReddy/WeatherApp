@@ -30,6 +30,7 @@ class WeatherListViewCell: UITableViewCell {
     
     func weatherDataConfigration(){
         cityNameLbl.text = weatherModal?.name
-        cityTemperatureLbl.text = weatherModal?.main?.temp
+        let fahrenheit = Int((weatherModal?.main!.temp)!)
+        cityTemperatureLbl.text = convertToCelsius(fahrenheit: fahrenheit)
     }
 }

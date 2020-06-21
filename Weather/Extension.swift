@@ -17,4 +17,15 @@ extension UIViewController {
         alertController.addAction(OKAction)
         self.present(alertController, animated: true, completion: nil)
     }
+    func convertToCelsius(fahrenheit: Int) -> String {
+           let roudedStr = " " + String(format: "%.2f",Double(5.0 / 9.0 * (Double(fahrenheit) - 32.0))) + "°C"
+           return roudedStr
+       }
+    
+}
+extension UITableViewCell{
+    func convertToCelsius(fahrenheit: Int) -> String {
+        let roudedStr = String(format: "%.2f",Double(5.0 / 9.0 * (Double(fahrenheit) - 32.0))) + "°C"
+        return roudedStr
+    }
 }
