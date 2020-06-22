@@ -22,11 +22,11 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q8V-K3-VBY">
                                 <rect key="frame" x="5" y="0.0" width="308" height="49"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.80873552589999997" green="0.94680916439999996" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Q8V-K3-VBY" firstAttribute="top" secondItem="s2D-bo-WQD" secondAttribute="top" id="7OF-TK-Wbj"/>
                             <constraint firstItem="Q8V-K3-VBY" firstAttribute="leading" secondItem="s2D-bo-WQD" secondAttribute="leading" constant="5" id="HrF-jJ-5Yd"/>
@@ -48,6 +48,7 @@
                     <constraint firstAttribute="trailing" secondItem="s2D-bo-WQD" secondAttribute="trailing" constant="5" id="v9w-h6-dJM"/>
                 </constraints>
             </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="cityNameLbl" destination="Q8V-K3-VBY" id="OPd-00-aTa"/>

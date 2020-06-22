@@ -14,12 +14,15 @@ class WeatherListViewController: UIViewController,ControlAPICall{
     var weatherViewModal = WeatherViewModal()
     var delegate:ControlAPICall!
     @IBOutlet weak var weatherListTableView : UITableView!
+    @IBOutlet weak var addCityBtn: UIBarButtonItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         weatherList()
         weatherListTableView.register(UINib(nibName: "WeatherListViewCell", bundle: nil), forCellReuseIdentifier: "WeatherListViewCell")
         self.weatherListTableView.tableFooterView = UIView()
+        addCityBtn.accessibilityIdentifier = addNewCityBtn
+        weatherListTableView.accessibilityIdentifier = weatherListTableVc
         Timer.scheduledTimer(withTimeInterval: 20, repeats: true) {
             (_) in
             self.weatherList()
@@ -47,6 +50,7 @@ extension WeatherListViewController :UITableViewDataSource,UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "WeatherListViewCell", for: indexPath) as? WeatherListViewCell
+        cell!.accessibilityIdentifier = "myCell_\(indexPath.row)"
         let weatherModal = weatherViewModal.weatherArrayData[indexPath.row]
         cell?.weatherModal = weatherModal
         return cell!

@@ -11,17 +11,19 @@ import SwiftyJSON
 struct WeatherDataModal {
     var name: String = ""
     var main: CityTemperatureData?
+    var sys: Sys?
     init() {
         
     }
     init(json:JSON) {
         name = json["name"].stringValue
         main = CityTemperatureData(temperatureJson: json["main"])
+        sys = Sys(SysJson: json["sys"])
         
     }
 }
 struct CityTemperatureData{
-    var temp: Int
+    var temp: Double
     var feels_like: String = ""
     var temp_min: Int
     var temp_max: Int
@@ -29,12 +31,26 @@ struct CityTemperatureData{
     var humidity: String = ""
     
     init(temperatureJson:JSON) {
-        temp = temperatureJson["temp"].intValue
+        temp = temperatureJson["temp"].doubleValue
         feels_like = temperatureJson["feels_like"].stringValue
         temp_min = temperatureJson["temp_min"].intValue
         temp_max = temperatureJson["temp_max"].intValue
         pressure = temperatureJson["pressure"].stringValue
         humidity = temperatureJson["humidity"].stringValue
     }
-    
 }
+    // MARK: - Sys
+    struct Sys{
+        let country: String
+        let timezone, sunrise, sunset: Int?
+        
+        init(SysJson:JSON) {
+            country = SysJson["country"].stringValue
+            timezone = SysJson["timezone"].intValue
+            sunrise = SysJson["sunrise"].intValue
+            sunset = SysJson["sunset"].intValue
+           
+        }
+    }
+    
+

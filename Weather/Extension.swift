@@ -18,9 +18,18 @@ extension UIViewController {
         self.present(alertController, animated: true, completion: nil)
     }
     func convertToCelsius(fahrenheit: Int) -> String {
-           let roudedStr = " " + String(format: "%.2f",Double(5.0 / 9.0 * (Double(fahrenheit) - 32.0))) + "°C"
-           return roudedStr
-       }
+        let roudedStr = " " + String(format: "%.2f",Double(5.0 / 9.0 * (Double(fahrenheit) - 32.0))) + "°C"
+        return roudedStr
+    }
+    // get date from stringd
+    func getTimeStringFromDate(dateValue:Int, timezone:Int) -> String {
+        let date = NSDate(timeIntervalSince1970: TimeInterval(dateValue))
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "hh:mm a"
+        dateFormatter.timeZone = TimeZone(secondsFromGMT:timezone)
+        let dataString = dateFormatter.string(from: date as Date)
+        return dataString
+    }
     
 }
 extension UITableViewCell{

@@ -22,24 +22,24 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="City Name" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hsH-l3-FWc">
                                 <rect key="frame" x="15" y="10" width="89" height="41"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="18"/>
-                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tempetaure " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J9F-EE-jCp">
                                 <rect key="frame" x="206.5" y="10" width="106.5" height="41"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="18"/>
-                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.80784313725490198" green="0.94509803921568625" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="hsH-l3-FWc" firstAttribute="leading" secondItem="eky-vl-8Jf" secondAttribute="leading" constant="15" id="Bpb-I9-wtw"/>
                             <constraint firstAttribute="bottom" secondItem="J9F-EE-jCp" secondAttribute="bottom" constant="10" id="DZT-EL-lCN"/>
                             <constraint firstAttribute="bottom" secondItem="hsH-l3-FWc" secondAttribute="bottom" constant="10" id="Hq5-CV-8pZ"/>
                             <constraint firstItem="hsH-l3-FWc" firstAttribute="top" secondItem="eky-vl-8Jf" secondAttribute="top" constant="10" id="Qka-7c-NQU"/>
                             <constraint firstItem="J9F-EE-jCp" firstAttribute="top" secondItem="eky-vl-8Jf" secondAttribute="top" constant="10" id="kaq-Ct-wqT"/>
-                            <constraint firstAttribute="trailing" secondItem="J9F-EE-jCp" secondAttribute="trailing" constant="15" id="uHG-We-OP5"/>
+                            <constraint firstAttribute="trailing" secondItem="J9F-EE-jCp" secondAttribute="trailing" constant="15" id="uDf-su-mLA"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -56,6 +56,7 @@
                     <constraint firstItem="eky-vl-8Jf" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="hfM-ty-2LF"/>
                 </constraints>
             </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="cityNameLbl" destination="hsH-l3-FWc" id="hJQ-Kq-cX3"/>

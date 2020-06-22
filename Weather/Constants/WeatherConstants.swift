@@ -11,5 +11,8 @@ import Foundation
 let app_id = "b961fe44b69637dbe9449a3f63dcbb68"
 let units = "metric"
 let base_url = "http://api.openweathermap.org/data/2.5/"
+let alertMsg = "city already selected,please select another city"
+let addNewCityBtn = "addCityBtn"
+let weatherListTableVc = "weatherListTableView"
 
 
