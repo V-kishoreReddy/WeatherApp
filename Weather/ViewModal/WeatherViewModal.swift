@@ -9,13 +9,17 @@
 import Foundation
 import UIKit
 import SwiftyJSON
+
 class WeatherViewModal{
     weak var vc : WeatherListViewController?
     weak var cityListVc : CityListViewController?
     var weatherArrayData = [WeatherDataModal]()
     var cityArrayData = [WeatherCityModal]()
     
-    
+     // MARK:- Web Service API
+    /*=======================================================================
+       Call API to import Weather Detail
+       =======================================================================*/
     func getWeatherData(){
         let appDelegate : AppDelegate = AppDelegate().sharedInstance()
        let citylist = appDelegate.cityArray.joined(separator:",")
@@ -29,7 +33,6 @@ class WeatherViewModal{
                 for arr in result.arrayValue{
                     self.weatherArrayData.append(WeatherDataModal(json: arr))
                 }
-                print(self.weatherArrayData)
                 DispatchQueue.main.async {
                     self.vc?.weatherListTableView.reloadData()
                 }

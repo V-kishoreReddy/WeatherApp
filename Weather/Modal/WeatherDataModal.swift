@@ -8,6 +8,7 @@
 
 import Foundation
 import SwiftyJSON
+
 struct WeatherDataModal {
     var name: String = ""
     var main: CityTemperatureData?
@@ -22,6 +23,8 @@ struct WeatherDataModal {
         
     }
 }
+
+ // MARK: - Main
 struct CityTemperatureData{
     var temp: Double
     var feels_like: String = ""
@@ -39,6 +42,7 @@ struct CityTemperatureData{
         humidity = temperatureJson["humidity"].stringValue
     }
 }
+
     // MARK: - Sys
     struct Sys{
         let country: String

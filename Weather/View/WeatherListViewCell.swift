@@ -9,7 +9,6 @@
 import UIKit
 
 class WeatherListViewCell: UITableViewCell {
-    
     @IBOutlet weak var cityNameLbl: UILabel!
     @IBOutlet weak var cityTemperatureLbl: UILabel!
     var weatherModal: WeatherDataModal?{
@@ -21,13 +20,7 @@ class WeatherListViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
     }
-    
-    override func setSelected(_ selected: Bool, animated: Bool){
-        super.setSelected(selected, animated: animated)
-        
-        // Configure the view for the selected state
-    }
-    
+    //MARK: Detail configure in listView
     func weatherDataConfigration(){
         cityNameLbl.text = weatherModal?.name
         cityTemperatureLbl.text = "\(String(describing: Int((weatherModal?.main!.temp)!) )) °C"

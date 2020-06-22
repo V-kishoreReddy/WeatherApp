@@ -11,6 +11,7 @@ import UIKit
 class WeatherDetailViewController: UIViewController {
     
     var weatherModalData = WeatherDataModal()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = weatherModalData.name
@@ -50,8 +51,6 @@ class WeatherDetailViewController: UIViewController {
         }
         return (title,value)
     }
-    
-    
 }
 // MARK: - Delegate and DataSource Methods
 extension WeatherDetailViewController: UICollectionViewDataSource, UICollectionViewDelegate {

@@ -7,10 +7,13 @@
 //
 
 import UIKit
+
 protocol ControlAPICall {
     func weatherList()
 }
+
 class WeatherListViewController: UIViewController,ControlAPICall{
+    
     var weatherViewModal = WeatherViewModal()
     var delegate:ControlAPICall!
     @IBOutlet weak var weatherListTableView : UITableView!
@@ -29,10 +32,12 @@ class WeatherListViewController: UIViewController,ControlAPICall{
             self.weatherList()
         }
     }
+    //Method for API call and update List
     func weatherList() {
         weatherViewModal.vc = self
         weatherViewModal.getWeatherData()
     }
+    
     // MARK: - Bar Buttun Action
     @IBAction func addBtnTapped(_ sender: UIBarButtonItem) {
         let cityListVc = self.storyboard?.instantiateViewController(identifier: "CityListViewController")as! CityListViewController
@@ -43,6 +48,7 @@ class WeatherListViewController: UIViewController,ControlAPICall{
     }
     
 }
+
 // MARK: - Extension for UITableViewDelegate and UITableViewDataSource
 extension WeatherListViewController :UITableViewDataSource,UITableViewDelegate{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -62,8 +68,8 @@ extension WeatherListViewController :UITableViewDataSource,UITableViewDelegate{
         detailVc.weatherModalData = weatherViewModal.weatherArrayData[indexPath.row]
         self.navigationController?.pushViewController(detailVc, animated: true)
     }
+    
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        
         let rotationTransform = CATransform3DTranslate(CATransform3DIdentity, -200, 0, 0)
         cell.layer.transform = rotationTransform
         cell.alpha = 0.5

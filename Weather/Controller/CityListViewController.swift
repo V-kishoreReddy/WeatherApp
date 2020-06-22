@@ -10,7 +10,6 @@ import UIKit
 
 class CityListViewController: UIViewController{
     
-    
     @IBOutlet weak var cityListTableView: UITableView!
     var delegate:ControlAPICall!
     var weatherViewModal = WeatherViewModal()
@@ -24,6 +23,7 @@ class CityListViewController: UIViewController{
         weatherViewModal.cityListVc = self
         weatherViewModal.readJSONFromLocalFile()
     }
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         progressHUD.hide()
