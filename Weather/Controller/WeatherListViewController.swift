@@ -23,6 +23,7 @@ class WeatherListViewController: UIViewController,ControlAPICall{
         self.weatherListTableView.tableFooterView = UIView()
         addCityBtn.accessibilityIdentifier = addNewCityBtn
         weatherListTableView.accessibilityIdentifier = weatherListTableVc
+        //Timer for Update periodically Api
         Timer.scheduledTimer(withTimeInterval: 20, repeats: true) {
             (_) in
             self.weatherList()

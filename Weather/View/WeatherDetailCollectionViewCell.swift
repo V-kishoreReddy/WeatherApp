@@ -10,8 +10,6 @@ import UIKit
 
 class WeatherDetailCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var titleLbl: UILabel!
-       @IBOutlet weak var detailLbl: UILabel!
-       var isAnimated = false
-    
+    @IBOutlet weak var detailLbl: UILabel!
     
 }

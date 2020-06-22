@@ -21,7 +21,6 @@ class WeatherDetailViewController: UIViewController {
     private func getWeatherDetail(index : Int)-> (title:String,value:String) {
         var title = ""
         var value = ""
-        //let localTimezone = detailInfoViewModel.weatherDeatilsInfoList?.timezone
         switch index {
         case 0:
             title = "Temperature"
@@ -75,6 +74,6 @@ extension WeatherDetailViewController: UICollectionViewDataSource, UICollectionV
         cell.detailLbl.text = weatherDetail.value
         return cell
     }
-    
+   
 }
 
