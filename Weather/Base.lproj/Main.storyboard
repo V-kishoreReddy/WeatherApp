@@ -78,30 +78,44 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Enter City Name" translatesAutoresizingMaskIntoConstraints="NO" id="Oal-69-6zh">
+                                <rect key="frame" x="0.0" y="44" width="414" height="56"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="vkP-ef-bDz" id="T5U-BA-YDB"/>
+                                </connections>
+                            </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="gfh-Y5-Yd5">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
-                                <color key="backgroundColor" red="1" green="0.54901960780000003" blue="0.3803921569" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <rect key="frame" x="0.0" y="100" width="414" height="762"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <outlet property="dataSource" destination="vkP-ef-bDz" id="63w-QV-1bn"/>
                                     <outlet property="delegate" destination="vkP-ef-bDz" id="wpq-Nq-Lgm"/>
                                 </connections>
                             </tableView>
                         </subviews>
+                        <color key="backgroundColor" red="1" green="0.54901960780000003" blue="0.3803921569" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="gfh-Y5-Yd5" firstAttribute="leading" secondItem="Bwp-2C-69P" secondAttribute="leading" id="Ieg-6X-Z9W"/>
-                            <constraint firstItem="Bwp-2C-69P" firstAttribute="trailing" secondItem="gfh-Y5-Yd5" secondAttribute="trailing" id="ODL-Tj-F28"/>
-                            <constraint firstItem="Bwp-2C-69P" firstAttribute="bottom" secondItem="gfh-Y5-Yd5" secondAttribute="bottom" id="a7y-1R-Lzy"/>
-                            <constraint firstItem="gfh-Y5-Yd5" firstAttribute="top" secondItem="Bwp-2C-69P" secondAttribute="top" id="cpc-VJ-qIK"/>
+                            <constraint firstItem="Oal-69-6zh" firstAttribute="top" secondItem="Bwp-2C-69P" secondAttribute="top" id="2fT-t7-dbM"/>
+                            <constraint firstItem="gfh-Y5-Yd5" firstAttribute="top" secondItem="Oal-69-6zh" secondAttribute="bottom" id="CLD-Xj-sem"/>
+                            <constraint firstItem="gfh-Y5-Yd5" firstAttribute="trailing" secondItem="Bwp-2C-69P" secondAttribute="trailing" id="EAo-3K-k6W"/>
+                            <constraint firstItem="Oal-69-6zh" firstAttribute="leading" secondItem="Bwp-2C-69P" secondAttribute="leading" id="HPR-JB-esS"/>
+                            <constraint firstItem="Bwp-2C-69P" firstAttribute="bottom" secondItem="gfh-Y5-Yd5" secondAttribute="bottom" id="ajG-KV-2k2"/>
+                            <constraint firstItem="gfh-Y5-Yd5" firstAttribute="leading" secondItem="Bwp-2C-69P" secondAttribute="leading" id="l3l-Qy-sut"/>
+                            <constraint firstItem="Oal-69-6zh" firstAttribute="trailing" secondItem="Bwp-2C-69P" secondAttribute="trailing" id="qpF-Nz-8v1"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Bwp-2C-69P"/>
                     </view>
                     <connections>
                         <outlet property="cityListTableView" destination="gfh-Y5-Yd5" id="E98-cK-6XU"/>
+                        <outlet property="searchBar" destination="Oal-69-6zh" id="iFV-zG-JzG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="slB-03-kbv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1787" y="120"/>
+            <point key="canvasLocation" x="1786.9565217391305" y="119.86607142857142"/>
         </scene>
         <!--Weather Detail View Controller-->
         <scene sceneID="IFA-se-nu1">

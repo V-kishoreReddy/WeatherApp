@@ -15,6 +15,7 @@ class WeatherViewModal{
     weak var cityListVc : CityListViewController?
     var weatherArrayData = [WeatherDataModal]()
     var cityArrayData = [WeatherCityModal]()
+    var filterCityArray = [WeatherCityModal]()
     
      // MARK:- Web Service API
     /*=======================================================================
@@ -55,6 +56,7 @@ class WeatherViewModal{
                     let result = try JSON(data: jsonData as Data)
                     for arr in result.arrayValue{
                         self.cityArrayData.append(WeatherCityModal(cityJosn: arr))
+                        filterCityArray = self.cityArrayData
                     }
                     print(cityArrayData.count)
                     DispatchQueue.main.async {
@@ -67,4 +69,15 @@ class WeatherViewModal{
             }
         }
     }
+    
+    //MARK:-  searchbar filter
+       func searchEmployee(with searchText: String, completion: @escaping () -> Void) {
+           if !searchText.isEmpty {
+               filterCityArray = self.cityArrayData
+               self.filterCityArray = filterCityArray.filter({ $0.name.lowercased().contains(searchText.lowercased())})
+           } else {
+               self.filterCityArray = self.cityArrayData
+           }
+           completion()
+       }
 }
