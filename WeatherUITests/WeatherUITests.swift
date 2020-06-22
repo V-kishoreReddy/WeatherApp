@@ -15,16 +15,19 @@ class WeatherUITests: XCTestCase {
         app = XCUIApplication()
         app.launch()
     }
+    //test tableView exist
     func testTableViewCellExist() throws {
         XCTAssertEqual(app.tables.count, 1)
         let table = app.tables.element(boundBy: 0)
         XCTAssertEqual(table.cells.count,3)
         app.tables.staticTexts["Sydney"].tap()
     }
-    func testTableInteraction() {
+    //Test tableView interaction
+    func testTableViewInteraction() {
         // Assert that we are displaying the tableview
         let mainTableView = app.tables["weatherListTableView"]
         XCTAssertTrue(mainTableView.exists,"The main tableview exists")
+        
         // Get an array of cells
         let tableCells = mainTableView.cells
         if tableCells.count > 0 {
@@ -42,7 +45,7 @@ class WeatherUITests: XCTestCase {
             XCTAssert(false, "Was not able to find any table cells")
         }
     }
-    
+    //Test table View Cell exist
     func testForCellExistence() {
         let detailstable = app.tables.matching(identifier: "weatherListTableView")
         let firstCell = detailstable.cells.element(matching: .cell, identifier: "myCell_0")

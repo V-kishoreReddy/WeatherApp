@@ -17,14 +17,13 @@ class WeatherTests: XCTestCase {
     override func setUp() {
         super.setUp()
         sut = URLSession(configuration: .default)
-        let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
-        vc = storyboard.instantiateViewController(withIdentifier: "WeatherListViewController")as! WeatherListViewController
     }
+    
     override func tearDown() {
         sut = nil
         super.tearDown()
     }
-    
+    //  test: success of API
     func testWeatherListAPI(){
         let appDelegate : AppDelegate = AppDelegate().sharedInstance()
         let citylist = appDelegate.cityArray.joined(separator:",")
@@ -42,12 +41,5 @@ class WeatherTests: XCTestCase {
         XCTAssertNil(responseError)
         XCTAssertEqual(statusCode, 200)
     }
-    
-//    func testCityDataNotNil() {
-//        let city = weatherViewModal.cityArrayData[1]
-//        XCTAssertNotNil(city)
-//        XCTAssertEqual(city.id, "14256")
-//        XCTAssertEqual(city.name, "Azadshahr")
-//    }
     
 }
